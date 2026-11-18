@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1258e8">
+  <title>SIMPEL. | Mijn planner</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <div class="logo">SIMPEL<span>.</span></div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <section class="card">
+      <div class="section-title">
+        <h2>AGENDA</h2>
+        <div class="view-switch">
+          <button id="dayBtn" class="active"
+            data-view="day">Dag</button>
+          <button id="weekBtn"
+            data-view="week">Week</button>
+        </div>
+      </div>
+
+      <div class="date-navigation">
+        <button id="previousDate">❮</button>
+        <strong id="dateTitle"></strong>
+        <button id="nextDate">❯</button>
+      </div>
+
+      <input type="date" id="viewDate">
+
+      <div id="agenda"></div>
+    </section>
+
+    <section class="card">
+      <h2>TO-DO</h2>
+      <div id="todos"></div>
+    </section>
+
+  </div>
+</main>
+
+<button id="addButton" class="floating-button">
+  + TOEVOEGEN
+</button>
+
+<!-- Scherm voor toevoegen en bewerken -->
+<div id="overlay" class="overlay hidden">
+  <div class="form-container">
+
+    <div class="section-title">
+      <h2 id="formTitle">TOEVOEGEN</h2>
+      <button id="closeButton">✕</button>
+    </div>
+
+    <div class="type-switch">
+      <button id="typeAgenda" class="active"
+        data-type="agenda">Agenda</button>
+      <button id="typeTodo"
+        data-type="todo">To-do</button>
+    </div>
+
+    <label for="name">Wat ga je doen?</label>
+    <input
+      type="text"
+      id="name"
+      placeholder="Bijv. schoolopdracht maken"
+      autocomplete="off"
+    >
+
+    <div id="timeFields">
+
+      <label for="entryDate">Datum</label>
+      <input type="date" id="entryDate">
+
+      <div class="quick-dates">
+        <button data-offset="0">Vandaag</button>
+        <button data-offset="1">Morgen</button>
+        <button data-offset="7">+7 dagen</button>
+      </div>
+
+      <label>Begin en eind</label>
+
+      <div class="timeboxes">
+        <button id="startBtn" class="timebox active"
+          data-part="start">
+          <small>BEGIN</small>
+          <strong id="startText">09:00</strong>
+        </button>
+
+        <button id="endBtn" class="timebox"
+          data-part="end">
+          <small>EIND</small>
+          <strong id="endText">10:00</strong>
+        </button>
+      </div>
+
+      <label>Uur</label>
+      <div id="hours" class="button-grid hours"></div>
+
+      <label>Minuten</label>
+      <div id="minutes" class="button-grid minutes"></div>
+
+      <div id="extraArea" class="hidden">
+        <label>Extra dagen bij eindtijd</label>
+        <div id="extraDays" class="button-grid days"></div>
+      </div>
+
+    </div>
+
+    <div class="form-actions">
+      <button id="saveButton" class="primary-button">
+        OPSLAAN
+      </button>
+      <button id="cancelButton" class="secondary-button">
+        Annuleren
+      </button>
+      <button id="deleteButton" class="delete-button hidden">
+        Verwijderen
+      </button>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
